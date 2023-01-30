@@ -1,4 +1,4 @@
-# myBlog - feito em spring boot com 
+# myBlog - Feito em spring boot com :
 
 - java
 - mysql
