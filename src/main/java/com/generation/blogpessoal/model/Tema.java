@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
 import java.util.List;
-
+//gustavo
 @Entity
 @Table(name = "tb_temas")
 public class Tema {
