@@ -1,4 +1,5 @@
 package com.generation.blogpessoal.model;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -6,10 +7,9 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import java.time.LocalDate;
 
-@Entity //Entidade - será um
+@Entity //Entidade - será a Postagem
 @Table(name = "tb_postagens")
 public class Postagem {
-
     //CRIACAO DE ATRIBUTOS NO DB
     @Id //criar um pk
     @GeneratedValue(strategy = GenerationType.IDENTITY)  //gerar o pk como auto increment
@@ -24,6 +24,22 @@ public class Postagem {
     private String texto;
     @UpdateTimestamp //Verificar o tempo que foi criado
     private LocalDate data;
+
+    @ManyToOne
+    @JsonIgnoreProperties("postagem")
+    private Tema tema;
+
+    @ManyToOne
+    @JsonIgnoreProperties("postagem")
+    private Usuario users;
+
+    public Usuario getUsers() {
+        return users;
+    }
+
+    public void setUsers(Usuario users) {
+        this.users = users;
+    }
 
     public long getId() {
         return id;
@@ -55,5 +71,13 @@ public class Postagem {
 
     public void setData(LocalDate data) {
         this.data = data;
+    }
+
+    public Tema getTema() {
+        return tema;
+    }
+
+    public void setTema(Tema tema) {
+        this.tema = tema;
     }
 }
