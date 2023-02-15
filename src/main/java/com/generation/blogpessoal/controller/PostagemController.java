@@ -10,8 +10,6 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Optional;
-
-
 /*
 Receberá requisições que serão compostas por:
 URL: Endereço da requisição (endpoint)
